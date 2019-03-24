@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{artist.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+  
+  <ion-card *ngFor="let album of albums"
+            (click)="goToAlbum(album)">
+    <img [src]="album.cover_big" />
+    <div class="card-title">{{album.title}}</div>
+  </ion-card>
+
+</ion-content>

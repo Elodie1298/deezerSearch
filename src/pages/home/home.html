@@ -1,14 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Deezer Search
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="card-background-page">
+
+  <ion-searchbar (search)="getItems($event)"></ion-searchbar>
+
+  <ion-card *ngFor="let artist of artists"
+            (click)="goToArtist(artist)">
+    <img [src]="artist.picture_big" />
+    <div class="card-title">{{artist.name}}</div>
+  </ion-card>
+
 </ion-content>

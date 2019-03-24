@@ -1,0 +1,36 @@
+<!--
+  Generated template for the AlbumPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{album.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+
+  <ion-list>
+    <button ion-item *ngFor="let track of tracks" (click)="itemSelected(track)">
+      {{ track.title }}
+    </button>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <app-play-bar
+    [cover]="album.cover_small"
+    [title]="currentTrack.title"
+    [artist]="artist.name"
+    [isPlaying]="isPlaying"
+    [isRandom]="isRandom"
+    (pause)="onPause()"
+    (play)="onPlay()"
+    (previous)="onPrevious()"
+    (next)="onNext()"
+    (random)="onRandom()"
+  ></app-play-bar>
+</ion-footer>
