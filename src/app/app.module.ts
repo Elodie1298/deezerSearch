@@ -13,6 +13,7 @@ import {ComponentsModule} from "../components/components.module";
 import {DeezerApiProvider} from "../providers/deezer-api/deezer-api";
 import {HttpClientModule} from "@angular/common/http";
 import {Media} from "@ionic-native/media";
+import {HTTP} from "@ionic-native/http";
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {Media} from "@ionic-native/media";
     HttpClientModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DeezerApiProvider,
-    Media
+    Media,
+    HTTP
   ]
 })
 export class AppModule {}
