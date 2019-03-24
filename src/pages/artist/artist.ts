@@ -29,7 +29,7 @@ export class ArtistPage {
   }
 
   getItems() {
-    this.api.getAlbumList(this.artist.name)
+    this.api.getAlbumList(this.artist.id)
       .then( (albums: Album[]) => {
           this.albums = albums;
         },

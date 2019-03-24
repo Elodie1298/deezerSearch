@@ -13,7 +13,7 @@ import {HTTP} from "@ionic-native/http";
 @Injectable()
 export class DeezerApiProvider {
   artistSearchUrl: string = "https://api.deezer.com/2.0/search/artist?q=";
-  albumSearchUrl: string = "https://api.deezer.com/2.0/search/album?q=artist:";
+  albumSearchUrl: string = "https://api.deezer.com/2.0/artist/";
   trackSearchUrl: string = "https://api.deezer.com/2.0/album/";
 
   // headers = {Authorization: "OAuth: token"};
@@ -41,8 +41,8 @@ export class DeezerApiProvider {
     });
   }
 
-  getAlbumList(artist: string): Promise<Album[]> {
-    let url = this.albumSearchUrl + "'" + artist + "'";
+  getAlbumList(artist_id: number): Promise<Album[]> {
+    let url = this.albumSearchUrl + artist_id + "/albums";
     console.log(url);
     return new Promise<Album[]>((resolve, reject) => {
       this.http.get(url, this.params, this.headers)
